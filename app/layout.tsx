@@ -31,10 +31,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 transition-colors cursor-default`}
       >
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen flex-col md:flex-row">
           <Sidebar sections={sections} />
-          <main className="flex-1 ml-72 min-h-screen bg-white dark:bg-[#0a0a0a]">
-            <div className="max-w-4xl mx-auto px-8 py-12">{children}</div>
+
+          {/* Main content: Remove left margin on mobile, add top padding for mobile header */}
+          <main className="flex-1 md:ml-72 min-h-screen bg-white dark:bg-[#0a0a0a] pt-16 md:pt-0">
+            <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8 md:py-12">
+              {children}
+            </div>
           </main>
         </div>
       </body>
